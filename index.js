@@ -5,7 +5,7 @@ const generateHTML = require("./dist/generatedHTML.js");
 
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generatedEmployees = [];
+const employees = [];
 
 // questions for the Manager entering the data
 const questionsForManager = [
@@ -95,8 +95,8 @@ inquirer.prompt(questionsForManager).then((data) => {
     data.email,
     data.officeNumber
   );
-  generatedEmployees.push(employee);
-  console.log(generatedEmployees);
+  employees.push(employee);
+  console.log(employees);
   addEmployee(addEmployees);
 });
 
@@ -123,8 +123,8 @@ function addEmployee() {
 function addEngineer() {
   inquirer.prompt(questionsForEngineer).then((data) => {
     const employee = new Engineer(data.name, data.id, data.email, data.github);
-    generatedEmployees.push(employee);
-    console.log(generatedEmployees);
+    employees.push(employee);
+    console.log(employees);
     return addEmployee();
   });
 }
@@ -133,15 +133,14 @@ function addEngineer() {
 function addIntern() {
   inquirer.prompt(questionsForIntern).then((data) => {
     const employee = new Intern(data.name, data.id, data.email, data.school);
-    generatedEmployees.push(employee);
-    console.log(generatedEmployees);
+    employees.push(employee);
+    console.log(employees);
     return addEmployee();
   });
 }
 
 function writeHTML() {
-    const myJSON = JSON.stringify(generatedEmployees);
-    const htmlPageContent = generateHTML(myJSON);
+    const htmlPageContent = generateHTML(employees)
   fs.writeFile("index.html", htmlPageContent, (err) =>
     err ? console.log(err) : console.log("HTML file has been created!")
   );
