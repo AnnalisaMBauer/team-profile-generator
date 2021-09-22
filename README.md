@@ -7,7 +7,6 @@ In this homework I was challenged in building a command-line application. This a
 
 * [Technology](#technology)
 * [Installation](#installation)
-* [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
 * [Tests](#tests)
@@ -24,7 +23,7 @@ In this homework I was challenged in building a command-line application. This a
 In order to generate an HTML for this command-line application you will need to run commands `npm init -y` and `npm install inquirer` in the command-line terminal. The application itself can be executed with command `node index.js` in the command-line terminal.
 
 ## License
-
+![CC0](https://img.shields.io/badge/badge-CC0-blue)
     This project is under the CC0 license
     
 ## Contributing
@@ -34,9 +33,13 @@ To contribute to the project please fork this repo and clone this project to you
 Tests were ran to validate that the user inputted a number and an object.
 
 ## Images
-The application is in progress.
+Video of application running and generating html.
 
-https://user-images.githubusercontent.com/87721575/134292889-41d4f3aa-97ec-42f2-9e14-c86eb68f8b23.mp4
+
+
+https://user-images.githubusercontent.com/87721575/134428117-af15cc99-6291-4c23-aade-38afd431cdc9.mp4
+
+
 
 
 ## Contact
