@@ -1,8 +1,8 @@
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
-const generatehtml = require("./dist/generateHTML.js");
-const Employee = require("./lib/Employee.js");
+const generateHTML = require("./dist/generatedHTML.js");
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generatedEmployees = [];
@@ -100,6 +100,7 @@ inquirer.prompt(questionsForManager).then((data) => {
   addEmployee(addEmployees);
 });
 
+// function to add engineer's or interns
 function addEmployee() {
   inquirer.prompt(addEmployees).then((data) => {
     console.log(data.inputEmployee);
@@ -110,14 +111,15 @@ function addEmployee() {
       case "Input Intern":
         addIntern();
         break;
-        addEmployee(addEmployees);
-      default:
-        console.log("Success! Your team profile has been generated!");
-        writeToFile("");
+        case "No other team members to add":
+         writeHTML();
+        default:
+      
     }
   });
 }
 
+// function for the case switch to add the Engineer data
 function addEngineer() {
   inquirer.prompt(questionsForEngineer).then((data) => {
     const employee = new Engineer(data.name, data.id, data.email, data.github);
@@ -127,6 +129,7 @@ function addEngineer() {
   });
 }
 
+// function for the case switch to add the Intern data
 function addIntern() {
   inquirer.prompt(questionsForIntern).then((data) => {
     const employee = new Intern(data.name, data.id, data.email, data.school);
@@ -134,4 +137,12 @@ function addIntern() {
     console.log(generatedEmployees);
     return addEmployee();
   });
+}
+
+function writeHTML() {
+    const myJSON = JSON.stringify(generatedEmployees);
+    const htmlPageContent = generateHTML(myJSON);
+  fs.writeFile("index.html", htmlPageContent, (err) =>
+    err ? console.log(err) : console.log("HTML file has been created!")
+  );
 }
