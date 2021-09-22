@@ -1,4 +1,12 @@
-    <!DOCTYPE html>
+const jsonString = '{generatedEmployees}';
+const result = [];
+
+for(var i in jsonString)
+    result.push([i, jsonString [i]]);
+
+const generateHTML = (result) =>
+
+`    <!DOCTYPE html>
 <html lang="en">
 ​
 <head>
@@ -23,11 +31,13 @@
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-             undefined
+             ${result}
 
         
             </div>
         </div>
     </div>
 </body>
-</html>
+</html>`
+
+module.exports = generateHTML;
