@@ -14,8 +14,8 @@ In this homework I was challenged in building a command-line application. This a
 * [Contact](#contact)
 
 ## Technology
-- Javascript
-- Node
+- Inquirer
+- Node.js
 - OOP
 - NPM
 
